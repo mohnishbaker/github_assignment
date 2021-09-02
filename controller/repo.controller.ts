@@ -12,7 +12,7 @@ export default class {
         });
       } else {
         const repoName: any = req.body.repo_name;
-        const searchData = await repoUtil.search(repoName);
+        const searchData = await repoUtil.repoSearch(repoName);
         if (searchData.total_count === 0) {
           res.send({ status: 404, message: 'No such repository' });
         } else {
