@@ -3,8 +3,8 @@ An app that will help recruiters review candidates github information by listing
 
 # Prerequisite
 
-Local mongodb instance
-Node JS
+1). Local mongodb instance
+2). Node JS
 
 # Working
 
