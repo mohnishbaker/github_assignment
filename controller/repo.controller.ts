@@ -13,7 +13,6 @@ export default class {
       } else {
         const repoName: any = req.body.repo_name;
         const searchData = await repoUtil.search(repoName);
-        console.log(searchData);
         if (searchData.total_count === 0) {
           res.send({ status: 404, message: 'No such repository' });
         } else {
