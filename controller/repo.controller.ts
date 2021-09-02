@@ -8,7 +8,7 @@ export default class {
       if (!req.body.repo_name) {
         res.send({
           status: 403,
-          message: 'Please provide a valid repository name',
+          message: 'Invalid repository name',
         });
       } else {
         const repoName: any = req.body.repo_name;

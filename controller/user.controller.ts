@@ -8,7 +8,7 @@ export default class {
       console.log('UserSearch called with', req.body.username);
       const userName: string = req.body.username;
       if (!userName) {
-        res.send({ status: 403, message: 'Please provide a valid username' });
+        res.send({ status: 403, message: 'Invalid username' });
       } else {
         const userData = await userModel.findOne({ login: `${userName}` });
         if (userData !== null) {
