@@ -30,14 +30,21 @@ Installation
 `npm install`
 
 Running the app
-# development
+# Development
+
+Coommand for running in Development Mode - 
+
 `$ npm run start`
 
 # watch mode
+
+Command for running in Watch Mode - 
+
 `$ npm run start:dev`
 
-nodemon can also be used to run the app.
+`nodemon` can also be used to run the app.
 
-Postman 
+# Postman 
+
 APIs can be accessed using this URL
 http://localhost:3000/
