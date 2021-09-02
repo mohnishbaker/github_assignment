@@ -2,14 +2,15 @@
 An app that will help recruiters review candidates github information by listing the github repositories and maintain user information in database.
 
 # Prerequisite
-local mongodb instance
+
+Local mongodb instance
 Node JS
 
 # Working
 
 The app takes username and reponame as request and contains 2 controllers -
 
-###### User-
+## User-
 
 EndPoint - 
 
@@ -17,7 +18,7 @@ user/userSearch
 
 This displays the user's details according to the github's username.
 
-###### Repository - 
+## Repository - 
 
 EndPoint - 
 repo/repoSearch
