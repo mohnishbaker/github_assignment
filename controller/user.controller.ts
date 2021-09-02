@@ -1,14 +1,14 @@
-import { Request, Response } from 'express';
+import { Request, Response, NextFunction } from 'express';
 import userModel from '../model/user.model';
 import userUtil from '../utils/user.search';
 
 export default class {
-  static async userSearch(req: Request, res: Response) {
+  static async userSearch(req: Request, res: Response, next: NextFunction) {
     try {
       console.log('UserSearch called with', req.body.username);
       const userName: string = req.body.username;
       if (!userName) {
-        res.send({ status: 403, message: 'Please provide a valid username' });
+        res.send({ status: 403, message: 'Invalid username' });
       } else {
         const userData = await userModel.findOne({ login: `${userName}` });
         if (userData !== null) {
@@ -26,7 +26,7 @@ export default class {
       }
     } catch (error) {
       console.log(error);
-      return error;
+      return next(error);
     }
   }
 }

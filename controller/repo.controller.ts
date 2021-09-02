@@ -1,18 +1,18 @@
-import { Request, Response } from 'express';
+import { Request, Response, NextFunction } from 'express';
 import repoUtil from '../utils/repo.search';
 
 export default class {
-  static async repoSearch(req: Request, res: Response) {
+  static async repoSearch(req: Request, res: Response, next: NextFunction) {
     try {
       console.log('RepoSearch called with', req.body.repo_name);
       if (!req.body.repo_name) {
         res.send({
           status: 403,
-          message: 'Please provide a valid repository name',
+          message: 'Invalid repository name',
         });
       } else {
         const repoName: any = req.body.repo_name;
-        const searchData = await repoUtil.search(repoName);
+        const searchData = await repoUtil.repoSearch(repoName);
         if (searchData.total_count === 0) {
           res.send({ status: 404, message: 'No such repository' });
         } else {
@@ -35,7 +35,7 @@ export default class {
       }
     } catch (error) {
       console.log(error);
-      return error;
+      return next(error);
     }
   }
 }

@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 export default class {
-  static async search(repoName: string) {
+  static async repoSearch(repoName: string) {
     try {
       const url = `https://api.github.com/search/repositories?q=${repoName}`;
       const response = await axios.get(url);
