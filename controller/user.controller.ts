@@ -1,9 +1,9 @@
-import { Request, Response } from 'express';
+import { Request, Response, NextFunction } from 'express';
 import userModel from '../model/user.model';
 import userUtil from '../utils/user.search';
 
 export default class {
-  static async userSearch(req: Request, res: Response) {
+  static async userSearch(req: Request, res: Response, next: NextFunction) {
     try {
       console.log('UserSearch called with', req.body.username);
       const userName: string = req.body.username;
@@ -26,7 +26,7 @@ export default class {
       }
     } catch (error) {
       console.log(error);
-      return error;
+      return next(error);
     }
   }
 }

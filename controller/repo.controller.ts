@@ -1,8 +1,8 @@
-import { Request, Response } from 'express';
+import { Request, Response, NextFunction } from 'express';
 import repoUtil from '../utils/repo.search';
 
 export default class {
-  static async repoSearch(req: Request, res: Response) {
+  static async repoSearch(req: Request, res: Response, next: NextFunction) {
     try {
       console.log('RepoSearch called with', req.body.repo_name);
       if (!req.body.repo_name) {
@@ -35,7 +35,7 @@ export default class {
       }
     } catch (error) {
       console.log(error);
-      return error;
+      return next(error);
     }
   }
 }
