@@ -3,6 +3,7 @@ An app that will help recruiters review candidates github information by listing
 The app takes username and reponame as request and contains 2 controllers - 
 User-
 
+Working
 EndPoint - 
 user/userSearch
 
