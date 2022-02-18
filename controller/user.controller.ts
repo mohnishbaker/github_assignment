@@ -42,7 +42,7 @@ export default class {
   }
   static async signUp(req: Request, res: Response, next: NextFunction) {
     try {
-      console.log("signUp called with", req.body.username);
+      console.log("signUp called with", req.body.email);
       let { email, name, password } = req.body;
       password = await bcrypt.hash(password, 10);
       const saveResult = await userModel.create({
@@ -59,6 +59,7 @@ export default class {
         });
       }
     } catch (error: any) {
+      console.log("Error - ", error);
       if (error.code == "11000") {
         return res.send({ status: 400, message: "Username already exists" });
       } else {
