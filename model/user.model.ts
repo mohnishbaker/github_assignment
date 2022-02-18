@@ -1,4 +1,5 @@
-import mongoose from 'mongoose';
+import { ObjectId } from "mongodb";
+import mongoose, { Mongoose, Schema } from "mongoose";
 
 const UserSchema = new mongoose.Schema({
   login: String,
@@ -20,10 +21,11 @@ const UserSchema = new mongoose.Schema({
   type: String,
   site_admin: Boolean,
   name: String,
+  password: String,
   company: String,
   blog: String,
   location: String,
-  email: String,
+  email: { type: String, required: true, unique: true },
   hireable: String,
   bio: String,
   twitter_username: String,
@@ -33,5 +35,16 @@ const UserSchema = new mongoose.Schema({
   following: Number,
   created_at: String,
   updated_at: String,
+  favouriteRepo: [
+    {
+      id: Number,
+      repoName: String,
+      description: String,
+      url: String,
+      privateRepo: Boolean,
+      favourite: Boolean,
+    },
+  ],
 });
+
 export default mongoose.model(`User`, UserSchema);
